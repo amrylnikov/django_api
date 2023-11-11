@@ -5,7 +5,6 @@ class Item(models.Model):
     description = models.TextField()
 
 class Card(models.Model):
-    number = models.IntegerField()
     url = models.URLField()
 
 class Field(models.Model):

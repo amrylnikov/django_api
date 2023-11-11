@@ -12,6 +12,6 @@ router.register(r'fields', FieldViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/layout/<int:number>/', RandomNumberView.as_view(), name='layout'),
+    path('api/shuffledCards/<int:number>/', RandomNumberView.as_view(), name='layout'),
     path('', TemplateView.as_view(template_name='index.html')),
 ]

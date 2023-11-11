@@ -26,7 +26,16 @@ class RandomNumberView(APIView):
             return Response({"error": "Number should be even"}, status=status.HTTP_400_BAD_REQUEST)
 
         half_number = number // 2
-        cards = list(range(1, half_number + 1)) * 2
-        random.shuffle(cards)
+        cards = Card.objects.all()
+        if not cards.exists():
+            return Response({"error": "No cards available"}, status=status.HTTP_404_NOT_FOUND)
 
-        return Response({"cards": cards}, status=status.HTTP_200_OK)
+        cards_list = list(cards.values())
+        
+
+        result = cards_list[:number // 2] * 2
+        random.shuffle(result)
+        # cards = list(range(1, half_number + 1)) * 2
+        # random.shuffle(cards)
+
+        return Response(result, status=status.HTTP_200_OK)
