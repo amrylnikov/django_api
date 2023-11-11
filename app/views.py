@@ -3,14 +3,22 @@ from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Item
-from .serializers import ItemSerializer
+from .models import Item, Card, Field
+from .serializers import ItemSerializer, CardSerializer, FieldSerializer
 
 
 # ---------------------- api ------------------------
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
+
+class CardViewSet(viewsets.ModelViewSet):
+    queryset = Card.objects.all()
+    serializer_class = CardSerializer
+
+class FieldViewSet(viewsets.ModelViewSet):
+    queryset = Field.objects.all()
+    serializer_class = FieldSerializer
 
 class RandomNumberView(APIView):
     def get(self, request, number, *args, **kwargs):
