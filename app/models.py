@@ -9,6 +9,8 @@ class Card(models.Model):
     url = models.URLField()
 
 class Field(models.Model):
-    size = models.IntegerField()
     difficulty = models.CharField(max_length=255)
     layout = models.JSONField()
+    history = models.JSONField()
+    players = models.JSONField()
+    current_player = models.CharField(max_length=255)
