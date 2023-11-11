@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from app.views import ItemViewSet, CardViewSet, FieldViewSet, RandomNumberView
+from app.views import PlayerViewSet, CardViewSet, GameViewSet, RandomNumberView
 from django.views.generic import TemplateView
 
 router = DefaultRouter()
-router.register(r'items', ItemViewSet)
+router.register(r'players', PlayerViewSet)
 router.register(r'cards', CardViewSet)
-router.register(r'fields', FieldViewSet)
+router.register(r'games', GameViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
