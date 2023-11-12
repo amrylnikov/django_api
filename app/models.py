@@ -5,6 +5,7 @@ class Player(models.Model):
     score = models.IntegerField()
 
 class Card(models.Model):
+    background_color = models.CharField(max_length=100)
     url = models.URLField()
 
 class Game(models.Model):

@@ -31,7 +31,7 @@ class RandomNumberView(APIView):
 
         cards_list = list(cards.values())
 
-        result = cards_list[:number // 2] * 2
+        result = random.sample(cards_list, number // 2) * 2
         random.shuffle(result)
 
         return Response(result, status=status.HTTP_200_OK)
