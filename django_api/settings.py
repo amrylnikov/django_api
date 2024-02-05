@@ -3,12 +3,14 @@
 import os
 
 from pathlib import Path
+from dotenv import load_dotenv
 import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY='django-insecure-a!^0u+la0!6lo=s2$@pno9=#ikujl!0y_u08whp59$2m+m*_^!'
-DATABASE_URL='postgres://hackathon_xqjx_user:maW8df7fWjdrS6hrUcwK1M8wGarfW3Ll@dpg-cl6b6e1k857s73cqlgsg-a.frankfurt-postgres.render.com/hackathon_xqjx'
+load_dotenv()
+SECRET_KEY = os.getenv('SECRET_KEY')
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 DEBUG = True
 
